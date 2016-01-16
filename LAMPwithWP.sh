@@ -25,8 +25,8 @@ sed -i -e '106i $cfg['Servers'][$i]['connect_type'] = 'tcp'; \' config.inc.php
 sed -i -e '107i $cfg['Servers'][$i]['extension'] = 'mysql'; \' config.inc.php 
 sed -i -e '108i $cfg['Servers'][$i]['compress'] = false; \' config.inc.php 
 sed -i -e '109i $cfg['Servers'][$i]['auth_type'] = 'config'; \' config.inc.php 
-sed -i -e '110i $cfg['Servers'][$i]['user'] = 'xxxxxx'; \' config.inc.php 
-sed -i -e '111i $cfg['Servers'][$i]['password'] = 'xxxxxx'; \' config.inc.php 
+sed -i -e '110i $cfg['Servers'][$i]['user'] = 'wordpress'; \' config.inc.php 
+sed -i -e '111i $cfg['Servers'][$i]['password'] = 'wordpress'; \' config.inc.php 
 
 
 cd /var/www/
