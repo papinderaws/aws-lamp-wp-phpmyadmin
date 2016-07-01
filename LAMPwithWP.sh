@@ -55,6 +55,10 @@ sudo chmod -R 755 /var/www/html/
 
 # start apache
 sudo service apache2 restart
+#For the PHP setting, open the /etc/php5/apache2/php.ini and configure the sendmail_path.
+#php.ini
 
+sendmail_path = "/usr/sbin/sendmail -t -i"
+sudo service apache2 restart
 #EOF
 #Written by P.S (Linux Admin &  Amazon Cloud Artitecture Associate)
