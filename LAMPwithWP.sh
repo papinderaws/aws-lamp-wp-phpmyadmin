@@ -18,15 +18,15 @@ sudo service apache2 restart
 
 cd /etc/phpmyadmin/
 sed -i -e '102i $i++; \' config.inc.php 
-sed -i -e '103i $cfg['Servers'][$i]['host'] = 'Rds-end-point write here'; \' config.inc.php 
+sed -i -e '103i $cfg['Servers'][$i]['host'] = 'tripangel.cjol2ukyqlys.us-east-1.rds.amazonaws.com'; \' config.inc.php 
 sed -i -e '104i $cfg['Servers'][$i]['port'] = '3306'; \' config.inc.php 
 sed -i -e '105i $cfg['Servers'][$i]['socket'] = ' '; \' config.inc.php 
 sed -i -e '106i $cfg['Servers'][$i]['connect_type'] = 'tcp'; \' config.inc.php 
 sed -i -e '107i $cfg['Servers'][$i]['extension'] = 'mysql'; \' config.inc.php 
 sed -i -e '108i $cfg['Servers'][$i]['compress'] = false; \' config.inc.php 
 sed -i -e '109i $cfg['Servers'][$i]['auth_type'] = 'config'; \' config.inc.php 
-sed -i -e '110i $cfg['Servers'][$i]['user'] = 'wordpress'; \' config.inc.php 
-sed -i -e '111i $cfg['Servers'][$i]['password'] = 'wordpress'; \' config.inc.php 
+sed -i -e '110i $cfg['Servers'][$i]['user'] = 'trip1ken2'; \' config.inc.php 
+sed -i -e '111i $cfg['Servers'][$i]['password'] = 'trip1ken2'; \' config.inc.php 
 
 
 cd /var/www/
@@ -60,5 +60,18 @@ sudo service apache2 restart
 
 sendmail_path = "/usr/sbin/sendmail -t -i"
 sudo service apache2 restart
+
+How to connect /home/user_dir with /var/www folder so that ftp and webserver work with no error
+
+sudo apt-get install vsftpd
+
+
+change uuser and group html web folder
+chown -R ubuntu:ubuntu /var/www/html/
+chmod -R 755 /var/www/html/
+
 #EOF
 #Written by P.S (Linux Admin &  Amazon Cloud Artitecture Associate)
+
+
+
