@@ -36,7 +36,7 @@ sed -i -e '110i $cfg['Servers'][$i]['user'] = 'xxxxxxx'; \' config.inc.php
 sed -i -e '111i $cfg['Servers'][$i]['password'] = 'xxxxxxxx'; \' config.inc.php
 cd /var/www/
 
-# Download Latest Wordpress
+# Download Latest Wordpresss
 
 sudo wget https://wordpress.org/latest.tar.gz
 
