@@ -34,7 +34,7 @@ sed -i -e '108i $cfg['Servers'][$i]['compress'] = false; \' config.inc.php
 sed -i -e '109i $cfg['Servers'][$i]['auth_type'] = 'config'; \' config.inc.php
 sed -i -e '110i $cfg['Servers'][$i]['user'] = 'xxxxxxx'; \' config.inc.php
 sed -i -e '111i $cfg['Servers'][$i]['password'] = 'xxxxxxxx'; \' config.inc.php
-cd /var/www/
+cd /home/ubuntu
 
 # Download Latest Wordpresss
 
@@ -46,10 +46,24 @@ sudo tar -xzf latest.tar.gz
 
 #remove tar and html 
 sudo rm latest.tar.gz
-sudo rm -rf html
+#sudo rm -rf html
 
 #rename wordpress into html folder
 sudo mv wordpress html
+#change uuser and group html web folder
+
+sudo usermod -a -G www-data ubuntu
+sudo chgrp www-data /home/ubuntu/html
+sudo chmod -R g+rwxs /home/ubuntu/html
+
+# Change Ownership and Permission of new Html Folder
+sudo chown -R ubuntu:www-data /home/ubuntu/html/
+
+cd /var/www
+
+sudo mv html html.bck
+#link home directory to html
+sudo ln -s /home/ubuntu/html /var/www/
 
 # start apache
 sudo service apache2 restart
@@ -60,14 +74,7 @@ sudo service apache2 restart
 
 #How to connect /home/user_dir with /var/www folder so that ftp and webserver work with no error
 sudo apt-get install vsftpd
-#change uuser and group html web folder
 
-sudo usermod -a -G www-data ubuntu
-sudo chgrp www-data /var/www/html
-sudo chmod -R g+rwxs /var/www/html
-
-# Change Ownership and Permission of new Html Folder
-sudo chown -R ubuntu:www-data /var/www/html/
 
 
 #EOF
