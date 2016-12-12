@@ -75,7 +75,22 @@ sudo service apache2 restart
 #How to connect /home/user_dir with /var/www folder so that ftp and webserver work with no error
 sudo apt-get install vsftpd
 
+sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.orig
 
+##Disable anonymous user login.
+anonymous_enable=NO
+
+##Uncomment these two lines.
+ascii_upload_enable=YES
+ascii_download_enable=YES
+
+##Uncomment and enter your Welcome message - Not necessary, It's optional.
+ftpd_banner=Welcome to my FTP service.
+
+##Add this line the end.
+use_localtime=YES
+
+sudo systemctl restart vsftpd
 
 #EOF
 #Written by P.S (Linux System Admin &  Amazon Cloud Artitecture Associate)
